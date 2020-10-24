@@ -1,4 +1,5 @@
 import { author, description } from './package.json'
+import yandexMetricPixel from './assets/yandex-metric-pixel.js'
 
 export default {
   mode: 'spa',
@@ -17,7 +18,14 @@ export default {
         content: description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    script: [{ src: '/scripts/yandex-metric.js', type: 'text/javascript' }],
+    noscript: [
+      { hid: 'yandex-metric-pixel', innerHTML: yandexMetricPixel, body: true }
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'yandex-metric-pixel': ['innerHTML']
+    }
   },
   /*
    ** Customize the progress-bar color
