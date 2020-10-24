@@ -2,7 +2,7 @@ import { author, description } from './package.json'
 import yandexMetricPixel from './assets/yandex-metric-pixel.js'
 
 export default {
-  mode: 'spa',
+  ssr: false,
   /*
    ** Headers of the page
    */
