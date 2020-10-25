@@ -3,6 +3,7 @@ import ymPixel from './assets/yandex-metrika/pixel.js'
 
 export default {
   ssr: false,
+  target: 'static',
   /*
    ** Headers of the page
    */
