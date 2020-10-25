@@ -1,5 +1,5 @@
 import { author, description } from './package.json'
-import yandexMetricPixel from './assets/yandex-metric-pixel.js'
+import ymPixel from './assets/yandex-metrika/pixel.js'
 
 export default {
   ssr: false,
@@ -19,10 +19,7 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
-    script: [{ src: '/scripts/yandex-metric.js', type: 'text/javascript' }],
-    noscript: [
-      { hid: 'yandex-metric-pixel', innerHTML: yandexMetricPixel, body: true }
-    ],
+    noscript: [{ hid: 'yandex-metric-pixel', innerHTML: ymPixel, body: true }],
     __dangerouslyDisableSanitizersByTagID: {
       'yandex-metric-pixel': ['innerHTML']
     }
@@ -38,7 +35,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['./plugins/yandex-metrika.client.js'],
   /*
    ** Nuxt.js dev-modules
    */
