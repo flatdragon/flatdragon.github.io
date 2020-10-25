@@ -24,9 +24,9 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
-    noscript: [{ hid: 'yandex-metric-pixel', innerHTML: ymPixel, body: true }],
+    noscript: [{ hid: 'yandex-metrika-pixel', innerHTML: ymPixel, body: true }],
     __dangerouslyDisableSanitizersByTagID: {
-      'yandex-metric-pixel': ['innerHTML']
+      'yandex-metrika-pixel': ['innerHTML']
     }
   },
   /*
