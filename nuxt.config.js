@@ -56,7 +56,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxt/content'
   ],
   /*
    ** Axios module configuration
@@ -76,5 +77,19 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true })
+        .only(['path'])
+        .fetch()
+
+      const articlesRegex = /^\/articles\/.+/
+
+      const articles = files.map((file) => articlesRegex.test(file.path))
+
+      return articles.map((file) => (file.path === '/index' ? '/' : file.path))
+    }
   }
 }

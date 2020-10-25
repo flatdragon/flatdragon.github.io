@@ -2,6 +2,7 @@
   <v-layout fill-height column align-center justify-center>
     <h1>{{ author }}</h1>
     <small>{{ description }}</small>
+    <nuxt-link to="/articles">Статьи</nuxt-link>
   </v-layout>
 </template>
 
