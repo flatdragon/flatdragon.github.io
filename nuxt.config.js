@@ -2,7 +2,6 @@ import { author, description } from './package.json'
 import ymPixel from './assets/yandex-metrika/pixel.js'
 
 export default {
-  ssr: false,
   target: 'static',
   /*
    ** Headers of the page
