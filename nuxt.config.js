@@ -87,7 +87,7 @@ export default {
 
       const articlesRegex = /^\/articles\/.+/
 
-      const articles = files.map((file) => articlesRegex.test(file.path))
+      const articles = files.filter((file) => articlesRegex.test(file.path))
 
       return articles.map((file) => (file.path === '/index' ? '/' : file.path))
     }
