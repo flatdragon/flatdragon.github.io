@@ -5,7 +5,7 @@
      version="2.0">
   <channel>
     <item turbo="true">
-  <link>/articles/collaboration-via-vscode</link>
+  <link>https://flatdragon.github.io/articles/collaboration-via-vscode</link>
   <turbo:content>
     <![CDATA[
       <header>
