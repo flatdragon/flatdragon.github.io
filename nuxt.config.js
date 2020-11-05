@@ -94,7 +94,7 @@ export default {
         const articles = nuxtContentFiles.filter((file) => articlesRegex.test(file.path))
 
         for (const article of articles) {
-          const turboPageContent = await renderToString(NuxtContent, {
+          let turboPageContent = await renderToString(NuxtContent, {
             propsData: {
               document: article,
             }
@@ -103,6 +103,11 @@ export default {
           const turboPageTemplate = await readFile(turboPageTemplatePath)
 
           const renderTurboPage = handlebars.compile(turboPageTemplate.toString())
+
+          turboPageContent = turboPageContent.replace(/<(?<tag>[^\s]+)(?<attrsBefore>.*)?id="(?<id>[^"]*?)"(?<attrsAfter>.*)?>/gi, (...match) => {
+            const { tag, attrsBefore, id, attrsAfter } = match.pop()
+            return `<${tag}${attrsBefore}id="${encodeURI(id)}"${attrsAfter}>`
+          })
 
           const turboPage = renderTurboPage({
             link: process.env.BASE_URL + article.path,
