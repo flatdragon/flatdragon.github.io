@@ -36,7 +36,7 @@ jobs:
       - run: npm run generate --if-present
         env:
           CI: true
-          PUBLIC_URL: /${{ steps.split.outputs._1 }}
+          BASE_URL: https://${{ steps.split.outputs._0 }}.github.io
 
       - name: Set Directory to Deploy
         run: echo ::set-env name=DIRECTORY_TO_DEPLOY::$((test -d build && echo build) || echo dist)

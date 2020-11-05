@@ -105,7 +105,7 @@ export default {
           const renderTurboPage = handlebars.compile(turboPageTemplate.toString())
 
           const turboPage = renderTurboPage({
-            link: article.path,
+            link: process.env.BASE_URL + article.path,
             title: article.title,
             content: turboPageContent,
           })
