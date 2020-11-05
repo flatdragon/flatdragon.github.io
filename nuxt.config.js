@@ -115,7 +115,7 @@ export default {
 
         const distDir = Path.join(__dirname, 'dist/_turbo')
         const turboChannelTemplatePath = Path.join(srcDir, 'channel.xml')
-        const turboChannelOutputPath = Path.join(distDir, 'channel.xml')
+        const turboChannelOutputPath = Path.join(distDir, 'articles')
         const turboChannelTemplate = await readFile(turboChannelTemplatePath)
 
         const renderTurboChannel = handlebars.compile(turboChannelTemplate.toString())
