@@ -1,95 +1,135 @@
 import { author, description } from './package.json'
-import ymPixel from './assets/yandex-metrika/pixel.js'
+import FS from 'fs'
+import Path from 'path'
+import Util from 'util'
+
+const readFile = Util.promisify(FS.readFile)
+const writeFile = Util.promisify(FS.writeFile)
 
 export default {
+  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-  /*
-   ** Headers of the page
-   */
+
+  publicRuntimeConfig: {
+    author: author,
+    description: description,
+    yandexVerification: 'd20b0c51e8077b6f',
+  },
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - ' + author,
-    title: description || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'yandex-verification',
-        name: 'yandex-verification',
-        content: 'd20b0c51e8077b6f'
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: description || ''
-      }
     ],
-    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
-    noscript: [{ hid: 'yandex-metrika-pixel', innerHTML: ymPixel, body: true }],
-    __dangerouslyDisableSanitizersByTagID: {
-      'yandex-metrika-pixel': ['innerHTML']
-    }
+    link: [
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+    ],
   },
-  /*
-   ** Customize the progress-bar color
-   */
+
+  // Customize the progress-bar color
   loading: { color: '#FF9800' },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ['./plugins/yandex-metrika.client.js'],
-  /*
-   ** Nuxt.js dev-modules
-   */
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
+  css: [
+  ],
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  plugins: [
+    './plugins/head.js',
+    './plugins/yandex-metrika.client.js',
+  ],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: true,
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
-  /*
-   ** Nuxt.js modules
-   */
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    '@nuxt/content'
+    // https://go.nuxtjs.dev/content
+    '@nuxt/content',
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
-  vuetify: {},
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+
+  // Content module configuration (https://go.nuxtjs.dev/config-content)
+  content: {},
+
+  // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: false,
+    },
   },
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content({ deep: true })
-        .only(['path'])
-        .fetch()
 
-      const articlesRegex = /^\/articles\/.+/
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {
+  },
 
-      const articles = files.filter((file) => articlesRegex.test(file.path))
+  hooks: {
+    generate: {
+      async distCopied() {
+        const srcDir = Path.join(__dirname, 'assets/turbo')
+        const turboPageTemplatePath = Path.join(srcDir, 'page.hbs')
 
-      return articles.map((file) => (file.path === '/index' ? '/' : file.path))
+        const NuxtContent = require('@nuxt/content/templates/nuxt-content').default
+        const { $content } = require('@nuxt/content')
+        const handlebars = require('handlebars')
+        const { renderToString } = require('@vue/server-test-utils')
+
+        const turboPages = []
+
+        const nuxtContentFiles = await $content({ deep: true }).fetch()
+
+        const articlesRegex = /^\/articles\/.+/
+
+        const articles = nuxtContentFiles.filter((file) => articlesRegex.test(file.path))
+
+        for (const article of articles) {
+          const turboPageContent = await renderToString(NuxtContent, {
+            propsData: {
+              document: article,
+            }
+          })
+
+          const turboPageTemplate = await readFile(turboPageTemplatePath)
+
+          const renderTurboPage = handlebars.compile(turboPageTemplate.toString())
+
+          const turboPage = renderTurboPage({
+            link: article.path,
+            title: article.title,
+            content: turboPageContent,
+          })
+
+          turboPages.push(turboPage)
+        }
+
+        const distDir = Path.join(__dirname, 'dist/_turbo')
+        const turboChannelTemplatePath = Path.join(srcDir, 'channel.xml')
+        const turboChannelOutputPath = Path.join(distDir, 'channel.xml')
+        const turboChannelTemplate = await readFile(turboChannelTemplatePath)
+
+        const renderTurboChannel = handlebars.compile(turboChannelTemplate.toString())
+
+        const turboChannel = renderTurboChannel({
+          items: turboPages.join(),
+        })
+
+        const mkdirp = require('mkdirp');
+
+        await mkdirp(Path.dirname(turboChannelOutputPath))
+
+        await writeFile(turboChannelOutputPath, turboChannel)
+      },
     }
-  }
+  },
 }

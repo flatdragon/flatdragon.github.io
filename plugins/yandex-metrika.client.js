@@ -24,7 +24,7 @@ export default ({ app: { router } }, inject) => {
 
       router.afterEach((to, from) => {
         Vue.nextTick(() => {
-          // TODO: Придумать другое решени проблемы с document.title
+          // TODO: Придумать другое решение проблемы с document.title
           ym('hit', to.fullPath, {
             referer: from.fullPath,
             title:

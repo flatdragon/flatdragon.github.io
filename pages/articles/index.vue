@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>Статьи</h1>
-    <small><b>Автор:</b> {{ author }}</small>
+    <small><b>Автор:</b> {{ $config.author }}</small>
     <ul>
       <li v-for="(article, i) in articles" :key="i">
         <a :href="article.path">{{ article.title }}</a>
@@ -11,13 +11,16 @@
 </template>
 
 <script>
-import { author } from '~/package.json'
-
-const title = 'Статьи'
-
 export default {
-  head: {
-    title
+  data() {
+    return {
+      title: 'Статьи',
+    }
+  },
+  head() {
+    return {
+      title: this.title,
+    }
   },
   async asyncData({ $content }) {
     const articles = await $content('articles')
@@ -25,9 +28,7 @@ export default {
       .fetch()
 
     return {
-      title,
-      author,
-      articles
+      articles,
     }
   }
 }

@@ -15,7 +15,6 @@ export default {
     return params.slug !== undefined && /^.+$/.test(params.slug)
   },
   async asyncData({ $content, params }) {
-    console.log(params)
     const article = await $content('articles', params.slug).fetch()
 
     return {
