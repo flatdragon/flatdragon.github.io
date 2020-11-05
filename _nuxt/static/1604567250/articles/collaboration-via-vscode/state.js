@@ -1,1 +1,0 @@
-window.__NUXT__={staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1604567250",layout:"default",error:null,serverRendered:true,routePath:"\u002Farticles\u002Fcollaboration-via-vscode",config:{author:"Кочетыгов Андрей",description:"Личный веб-сайт «Кочетыгова Андрея»",yandexVerification:"d20b0c51e8077b6f",content:{dbHash:"a2b9f065"}}};
