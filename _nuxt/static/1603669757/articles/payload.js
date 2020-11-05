@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/articles", {data:[{title:"Статьи",author:"Кочетыгов Андрей",articles:[{title:"Совместная работа в Visual Studio Code",path:"\u002Farticles\u002Fcollaboration-via-vscode"}]}],fetch:[],mutations:void 0});
