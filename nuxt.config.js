@@ -109,6 +109,15 @@ export default {
             return `<${tag}${attrsBefore}id="${encodeURI(id)}"${attrsAfter}>`
           })
 
+          turboPageContent = turboPageContent.replace(/<img(?<attrsBefore>.*)?src="(?<src>[^"]*?)"(?<attrsAfter>.*)?>/gi, (...match) => {
+            const { attrsBefore, src, attrsAfter } = match.pop()
+            if (/^\//.test(src)) {
+              return `<img${attrsBefore}src="${process.env.BASE_URL}${src}"${attrsAfter}>`
+            } else {
+              return `<img${attrsBefore}src="${src}"${attrsAfter}>`
+            }
+          })
+
           const turboPage = renderTurboPage({
             link: process.env.BASE_URL + article.path,
             title: article.title,
