@@ -23,24 +23,24 @@
 <h3 id="%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D1%8F-live-share"><a href="#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%80%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D1%8F-live-share" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Установка расширения Live Share</h3>
 <p>Для организации подключения к сервису Visual Studio Live Share необходим <a href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsls-vs" rel="nofollow noopener noreferrer" target="_blank">плагин Live Share</a> и чтобы его установить нужно перейти по <a href="vscode:extension/MS-vsliveshare.vsliveshare">ссылке установки Live Share</a> и дать браузеру разрешение на открытие редактора Visual Studio Code.</p>
 <p>После осуществления данного действия в Visual Studio Code откроется страница соответствующего плагина, на которой необходимо будет <strong>нажать на зеленую кнопку «Install»</strong>. Расположение данной кнопки указано на следующем рисунке.</p>
-<p><img alt="Страница плагина Live Share открытая в Visual Studio Code, где указано расположение зеленой кнопки «Install»" src="/install-live-share-extension.png"></p>
+<p><img alt="Страница плагина Live Share открытая в Visual Studio Code, где указано расположение зеленой кнопки «Install»" src="https://flatdragon.github.io/install-live-share-extension.png"></p>
 <p>Далее необходимо дождаться установки расширения и можно переходить к дальнейшим действиям.</p>
 <h3 id="%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%B2-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B5-visual-studio-live-share"><a href="#%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%B2-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B5-visual-studio-live-share" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Авторизация в сервисе Visual Studio Live Share</h3>
 <p>Для авторизации в сервисе Visual Studio Live Share надо на панели в нижней части редактора, в левом углу, <strong>найти кнопку «Live Share»</strong>, представленную на следующем рисунке.</p>
-<p><img alt="Вид кнопки «Live Share» на нижней панели редактора Visual Studio Code" src="/status-bar-live-share-button.png"></p>
+<p><img alt="Вид кнопки «Live Share» на нижней панели редактора Visual Studio Code" src="https://flatdragon.github.io/status-bar-live-share-button.png"></p>
 <p>После клика по данной кнопке появиться окно с выбором способа авторизации. Необходимо <strong>выбрать способ «Sign in with GitHub»</strong>.</p>
-<p><img alt="Вид ссылки «Sign in with GitHub» в меню плагина Live Share" src="/sign-in-to-visual-studio-live-share.png"></p>
+<p><img alt="Вид ссылки «Sign in with GitHub» в меню плагина Live Share" src="https://flatdragon.github.io/sign-in-to-visual-studio-live-share.png"></p>
 <p>В открывшемся окне браузера необходимо <strong>войти в аккаунт на Github</strong>, ранее созданный или уже имеющийся, с помощью формы представленной на следующем рисунке.</p>
-<p><img alt="Вид формы входа в аккаунт GitHub" src="/sign-in-to-github.png"></p>
+<p><img alt="Вид формы входа в аккаунт GitHub" src="https://flatdragon.github.io/sign-in-to-github.png"></p>
 <p>Затем нужно <strong>нажать на кнопку «Authorize VisualStudioLiveShare»</strong>, чтобы предоставить сервису Visual Studio Live Share доступ к информации на Вашем GitHub-аккаунте. Расположение данной кнопки продемонстрировано на следующем рисунке.</p>
-<p><img alt="Страница OAuth-авторизации с помощью GitHub, где указано расположение зеленой кнопки «Authorize VisualStudioLiveShare»" src="/authorize-visual-studio-live-share.png"></p>
+<p><img alt="Страница OAuth-авторизации с помощью GitHub, где указано расположение зеленой кнопки «Authorize VisualStudioLiveShare»" src="https://flatdragon.github.io/authorize-visual-studio-live-share.png"></p>
 <p>После проделанных действий <strong>браузер совершит перенаправление на страницу с заголовком «Готовы к совместной работе!»</strong>, где также необходимо будет разрешить браузеру открытие редактора Visual Studio Code</p>
 <p>Если все прошло успешно, то в правом нижнем углу редактора появиться уведомление представленное на следующем рисунке. Оно сигнализирует, что началась сессия вещания.</p>
-<p><img alt="Вид уведомления от расширения Live Share сигнализирующий о том, что вещание успешно началось." src="/live-share-success-notification.png"></p>
+<p><img alt="Вид уведомления от расширения Live Share сигнализирующий о том, что вещание успешно началось." src="https://flatdragon.github.io/live-share-success-notification.png"></p>
 <p>Теперь на нижней панели редактора, в левом углу, должны появиться <strong>имя пользователя GitHub-аккаунта</strong> и <strong>иконка показывающая количество человек</strong>, подключенных к запущенной в данный момент сессии вещания, что представлено на следующем рисунке.</p>
-<p><img src="/status-bar-live-share-active.png"></p>
+<p><img src="https://flatdragon.github.io/status-bar-live-share-active.png"></p>
 <p><strong>Кликнув на имя пользователя GitHub-аккаунта</strong> Вы откроете меню, которое появиться в верхней части экрана и будет выглядеть следующим образом:</p>
-<p><img src="/user-online-menu.png"></p>
+<p><img src="https://flatdragon.github.io/user-online-menu.png"></p>
 <p>Детальный обзор содержимого данного меню, в зависимости от контекста его использования, будет осуществлен в последующих разделах. Однако в данный момент стоит лишь <strong>воспользоваться пунктом меню «Stop Collaboration Session»</strong> для того, чтобы прервать текущую сессию вещания.</p>
 <h2 id="%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%82%D0%BE%D1%80%D0%B0"><a href="#%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%82%D0%BE%D1%80%D0%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Действия организатора</h2>
 <h3 id="%D0%B2%D1%8B%D0%B1%D0%BE%D1%80-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0"><a href="#%D0%B2%D1%8B%D0%B1%D0%BE%D1%80-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Выбор рабочего проекта</h3>
@@ -49,20 +49,20 @@
 <p>Кроме того, <strong>при закрытии окна с активной сессией вещания - она будет прервана</strong>.</p>
 <h3 id="%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B8"><a href="#%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B8" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Планирование сессии</h3>
 <p>Для того, чтобы <strong>создать постоянную ссылку на сессию</strong> можно воспользоваться функционалом вкладки «Planned Sessions», которая доступна пользователю, когда он не находиться в какой-либо сессии. Она представлена на следующем рисунке.</p>
-<p><img src="/live-share/sidebar/panel/planned-sessions.png"></p>
-<p>Сперва необходимо <strong>нажать на кнопку плюса</strong> <img src="/live-share/actions/plan-session/step-1.png">, после чего появиться поле, в котором необходимо ввести название для запланированной сессии, как показано на следующем рисунке.</p>
+<p><img src="https://flatdragon.github.io/live-share/sidebar/panel/planned-sessions.png"></p>
+<p>Сперва необходимо <strong>нажать на кнопку плюса</strong> <img src="https://flatdragon.github.io/live-share/actions/plan-session/step-1.png">, после чего появиться поле, в котором необходимо ввести название для запланированной сессии, как показано на следующем рисунке.</p>
 <p>После выполнения данных действий соответствующая сессия появиться в списке запланированных. Далее необходимо <strong>навести курсор на запланированную сессию</strong> и можно будет увидеть две иконки представленные на следующим рисунке.</p>
-<p><img src="/live-share/actions/plan-session/step-3.png"></p>
-<p>Если <strong>нажать на иконку планшета</strong> <img src="/live-share/actions/plan-session/step-4.png">, то можно <strong>скопировать ссылку на выбранную сессию</strong>. Полученную ссылку необходимо <strong>разослать участникам сессии</strong>.</p>
-<p>Для того, чтобы <strong>начать вещание запланированной сессии</strong>, необходимо <strong>кликнуть по иконке открытия внешней ссылки</strong> <img src="/live-share/actions/plan-session/step-5.png">.</p>
+<p><img src="https://flatdragon.github.io/live-share/actions/plan-session/step-3.png"></p>
+<p>Если <strong>нажать на иконку планшета</strong> <img src="https://flatdragon.github.io/live-share/actions/plan-session/step-4.png">, то можно <strong>скопировать ссылку на выбранную сессию</strong>. Полученную ссылку необходимо <strong>разослать участникам сессии</strong>.</p>
+<p>Для того, чтобы <strong>начать вещание запланированной сессии</strong>, необходимо <strong>кликнуть по иконке открытия внешней ссылки</strong> <img src="https://flatdragon.github.io/live-share/actions/plan-session/step-5.png">.</p>
 <h2 id="%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA%D0%B0"><a href="#%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA%D0%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Действия участника</h2>
 <p>Для начала, перед тем как выполнять действия из данного раздела, необходимо <strong>проделать действия из <a href="#%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5">раздела подготовки к работе</a></strong>, а также <strong>изучить интерфейс плагина LiveShare</strong></p>
 <p>Чтобы присоединится к какой-либо сессии Вам необходимо <strong>получить у организатора ссылку</strong> примерно следующего вида:</p>
 <p><strong><em>https://prod.liveshare.vsengsaas.visualstudio.com/join?32F8ADC293BE2EAECBF069082B0ED345FFCE</em></strong></p>
-<p>Далее необходимо <strong>нажать на кнопку управления Live Share аккаунтом</strong> <img src="/live-share/user-button.png"> и дождаться открытия меню управления аккаунтом. В данном меню Вам необходимо <strong>выбрать пункт «Join Collaboration Session»</strong>, как показано на следующем рисунке.</p>
-<p><img src="/live-share/menus/out-of-session/join-session-step-1.png"></p>
+<p>Далее необходимо <strong>нажать на кнопку управления Live Share аккаунтом</strong> <img src="https://flatdragon.github.io/live-share/user-button.png"> и дождаться открытия меню управления аккаунтом. В данном меню Вам необходимо <strong>выбрать пункт «Join Collaboration Session»</strong>, как показано на следующем рисунке.</p>
+<p><img src="https://flatdragon.github.io/live-share/menus/out-of-session/join-session-step-1.png"></p>
 <p>Затем появиться поле ввода, куда необходимо будет <strong>вставить ранее полученную ссылку</strong>, как показано на следующем рисунке.</p>
-<p><img src="/live-share/menus/out-of-session/join-session-step-2.png"></p>
+<p><img src="https://flatdragon.github.io/live-share/menus/out-of-session/join-session-step-2.png"></p>
 <p>Если все действия были выполнены правильно и сессия не была прервана организатором, то Вы должны будете присоединиться к ней и <strong>принимать участие в совместной разработке!</strong></p></div>
     ]]>
   </turbo:content>
